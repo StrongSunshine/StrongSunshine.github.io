@@ -2,7 +2,7 @@
 &nbsp;&nbsp;</a></span><span class="page-tag-anchor"><a href="/tags/js" itemprop="url">#js
 &nbsp;&nbsp;</a></span><span class="page-tag-anchor"><a href="/tags/vue" itemprop="url">#vue
 &nbsp;&nbsp;</a></span><span class="post-meta"></span><br><br><p>通常引用了一个npm依赖，我们是不会管它怎么实现的，都是直接使用的，因为通常都是做好兼容的，但是有些包你还是要经过bable处理一下，为了兼容ie。但是大家都知道，vue-cli编译都是过滤node_moudles的，如果你引用了一些没有经过es6转es5的依赖包，往往在ie你是打不开的，弹出各种错误，那么这种情况该如何处理？这里以resize-detector为例，这是一个监听dom大小变化的npm依赖</p>
-<h3 id="vue-cli2："><a href="#vue-cli2：" class="headerlink" title="vue-cli2："></a>vue-cli2：</h3><pre class=" language-js"><code class="language-js"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h3 id="vue-cli2："><a href="#vue-cli2：" class="headerlink" title="vue-cli2："></a>vue-cli2：</h3><pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
   test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
   loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
   include<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
@@ -13,13 +13,13 @@
     <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'node_modules/vue-echarts'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'node_modules/resize-detector'</span><span class="token punctuation">)</span>
   <span class="token punctuation">]</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>这里直接不用exclude</p>
 <h3 id="vue-cli3"><a href="#vue-cli3" class="headerlink" title="vue-cli3"></a>vue-cli3</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// vue.config.js</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   transpileDependencies<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token string">'resize-detector'</span>
   <span class="token punctuation">]</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>在vue.config里面加这个选项</p>
 </article><br><br><span class="next-post"><a href="/2019/11/25/css实现图片改变颜色/" itemprop="url">Older Post ⇒</a></span><span class="prev-post"><a href="/2021/05/21/如何使用css3实现毛玻璃效果（背景模糊）/" itemprop="url">⇐ Next Post </a></span><br><br><br></main></body></html>
